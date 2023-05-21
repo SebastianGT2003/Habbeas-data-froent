@@ -1,0 +1,23 @@
+.datalist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    writing-mode: horizontal-tb;
+    width: 50%;
+    margin: auto;
+  }
+  
+  
+
+.less{
+  accent-color: rgb(247, 150, 5);
+}
+.heigh{
+  accent-color: rgb(39, 196, 0);
+}
+
+.modal-fullscreen {
+  width: auto;
+  height: 50vh;
+  margin: 0;
+}
