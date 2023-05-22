@@ -15,8 +15,12 @@ function App() {
     }
   }, [data]);
   const [show, setShow] = useState(true);
+  
 
   const handleClose = () => {
+    localStorage.setItem("publicidad", data)
+    alert("Si señores")
+    console.log(data)
     setShow(false);
   };
 
@@ -88,8 +92,8 @@ function App() {
                     className={data > 50 ? "heigh" : "less"}
                     list="markers"
                     min={0}
-                    max={100}
                     step={50}
+                    max={100}
                     value={data}
                     onChange={(e) => setData(e.target.value)}
                     id="temp"

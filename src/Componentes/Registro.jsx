@@ -15,6 +15,8 @@ function Registro() {
   const [tipo_documento, setTipo_documento] = useState("");
   const [numerodoc, setNumerodoc] = useState("");
 
+  const [publicidad, setPublicidad] = useState("");
+
   ////
   var today = new Date();
 
@@ -23,6 +25,23 @@ function Registro() {
   
   const navegador = useNavigate();
 
+  const getData=()=>{
+    return localStorage.getItem("publicidad");
+  }
+
+  const publi=()=>{
+    setPublicidad(getData());
+    if (publicidad == 0) {
+      setPublicidad("Poca");
+      
+    } 
+    else if (publicidad == 50){
+      setPublicidad("Moderada");
+    }
+    else if(publicidad == 100){
+      setPublicidad("Frecuente");
+    }
+  };
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     setAceptaterminos(!aceptaterminos);
@@ -39,7 +58,8 @@ function Registro() {
       correo: correo,
       contraseña: contraseña,
       aceptaterminos:aceptaterminos,
-      fecha_actual:now
+      fecha_actual:now,
+      publicidad:publicidad
 
     };
     console.log(usuario);
@@ -204,6 +224,7 @@ function Registro() {
                 type="submit"
                 className="btn btn-lg rounded-3 w-100 mb-2 btn-outline-danger"
                 disabled={!isChecked}
+                onClick={publi}
               >
                 Registarme
               </button>
