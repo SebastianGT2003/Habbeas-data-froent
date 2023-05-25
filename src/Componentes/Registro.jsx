@@ -31,16 +31,18 @@ function Registro() {
 
   const publi=()=>{
     setPublicidad(getData());
-    if (publicidad == 0) {
+    var otra=parseInt(publicidad,10)
+
+    if (otra == 0) {
       setPublicidad("Poca");
       
-    } 
-    else if (publicidad == 50){
-      setPublicidad("Moderada");
-    }
-    else if(publicidad == 100){
+    }else if(otra == 100){
       setPublicidad("Frecuente");
     }
+    else if (otra == 50){
+      setPublicidad("Moderada");
+    }
+   
   };
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -113,7 +115,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label for="floatingPassword">Nombre</label>
+                <label htmlFor="floatingPassword">Nombre</label>
               </div>
               <div className="form-floating mb-3">
                 <select
@@ -135,7 +137,7 @@ function Registro() {
                   <option value="pa">PA - Pasaporte</option>
                 </select>
 
-                <label for="floatingPassword">Tipo de documento</label>
+                <label htmlFor="floatingPassword">Tipo de documento</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -149,7 +151,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label for="floatingPassword">Numero de documento</label>
+                <label htmlFor="floatingPassword">Numero de documento</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -164,7 +166,7 @@ function Registro() {
                   required
                 />
 
-                <label for="floatingPassword">Fecha de nacimiento</label>
+                <label htmlFor="floatingPassword">Fecha de nacimiento</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -178,7 +180,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label for="floatingInput">Celular</label>
+                <label htmlFor="floatingInput">Celular</label>
               </div>
 
               <div className="form-floating mb-3">
@@ -193,7 +195,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label for="floatingInput">Correo</label>
+                <label htmlFor="floatingInput">Correo</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -207,7 +209,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label for="floatingPassword">Contreseña</label>
+                <label htmlFor="floatingPassword">Contreseña</label>
               </div>
 
               
