@@ -27,19 +27,19 @@ function App() {
   return (
     <div>
       {show && (
-        <div className="position- absolute top-50 start-50 translate-middle">
+        
            <div
           className="modal-dialog modal-xl"
           style={{
-            height:"auto",
-            width:"120vh",
-            display:"flex"
+            zIndex:'99',position: 'fixed', 
+      top: '20%',left:'20%', height:'20%',
+      right: '20%',
           }}
         >
           <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title h4" id="exampleModalFullscreenLabel">
-                Terms Of Use OFFCORSS
+            <div className="modal-header " >
+              <h5 className="modal-title h4 " id="exampleModalFullscreenLabel">
+              Términos y condiciones de Eco-Moda
               </h5>
               <button
                 type="button"
@@ -165,8 +165,6 @@ function App() {
           </div>
         </div>
 
-
-        </div>
        
       )}
 
