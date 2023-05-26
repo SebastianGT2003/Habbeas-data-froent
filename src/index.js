@@ -9,6 +9,7 @@ import Tienda from './Paginas/Tienda';
 import InicioSesion from './Paginas/Inicio';
 import Registro from './Paginas/Registro';
 import Mapa from './Paginas/Mapa';
+import PDF from './Paginas/Pdf'
 
 
 import {
@@ -30,6 +31,7 @@ root.render(
         <Route path="/registro" element={<Registro />} />
         <Route path="/tienda" element={<Tienda />} />
         <Route path="/mapita" element={<Mapa />} />
+        <Route path="/pdf" element={<PDF />} />
       </Routes>
     </Router>
   </React.StrictMode>

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Modal from "./TermsOfUse";
+import MyPDF from "../Pdf/Docu";
 
 function Map_usuarios() {
+  const [userList, setUserList] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [renderizarComponente, setRenderizarComponente] = useState(false);
 
-  const [userList, setUserList]= useState([]);
 
   const usuarios_registrados = async (setUserList) => {
     const { data } = await axios.get("/api/usuario/usuarios_registrados");
@@ -13,34 +16,36 @@ function Map_usuarios() {
     setUserList(data);
   };
 
+  const navegador = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
+    usuarios_registrados(setUserList).catch(console.error);
+  }, []);
 
-    usuarios_registrados(setUserList).catch(console.error)
-  },[])
-  
-
-
-
+  const mostrar_pdf = (user) => {
+    setSelectedUser(user);
+    console.log(selectedUser)
+    setRenderizarComponente(true);
+    MyPDF(user)
+    navegador("/pdf")
+  };
 
   return (
     <div>
-      <div class="col col-12 mt-3">
+      <div className="col col-12 mt-3">
         <button
           type="button"
-          class="btn btn-danger mr-4 position-absolute top-5 end-0"
-          /* onClick={sesio_administrador.cerrar_sesion_admin} */
+          className="btn btn-danger mr-4 position-absolute top-5 end-0"
         >
           Cerrar sesion
         </button>
       </div>
-      
 
-      <div class="container">
+      <div className="container">
         <h1>Usuarios registrados en tu pagina:</h1>
-        <div class="row-4 mt-4">
-          <div class="col">
-            <table class="table table-striped">
+        <div className="row-4 mt-4">
+          <div className="col">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>Documento</th>
@@ -52,11 +57,19 @@ function Map_usuarios() {
               <tbody>
                 {userList.map((user, index) => (
                   <tr key={index}>
-                    <th>{user.numerodoc}</th>
-                    <th>{user.nombre}</th>
-                    <th>{user.publicidad}</th>
-                    <th>{user.fecha_actual}</th>
-              
+                    <td>{user.numerodoc}</td>
+                    <td>{user.nombre}</td>
+                    <td>{user.publicidad}</td>
+                    <td>{user.fecha_actual}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn btn-dark btn-sm"
+                        onClick={() => mostrar_pdf(user)}
+                      >
+                        Ver PDF
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -64,6 +77,7 @@ function Map_usuarios() {
           </div>
         </div>
       </div>
+      <div>{renderizarComponente && <MyPDF user={selectedUser} />}</div>
     </div>
   );
 }
