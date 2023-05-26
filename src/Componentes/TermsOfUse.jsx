@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Estilos/Componentes.css";
+import Logo from "../Imagenes/IconoEscudo Sinfondo.png"
 function App() {
   //😔🤩🫡
   const [data, setData] = useState(0);
@@ -27,25 +28,23 @@ function App() {
   return (
     <div>
       {show && (
-        <div className="position- absolute top-50 start-50 translate-middle">
+        
            <div
           className="modal-dialog modal-xl"
           style={{
-            height:"auto",
-            width:"120vh",
-            display:"flex"
+            zIndex:'99',position: 'fixed', 
+      top: '22%',left:'15%', height:'20%',
+      right: '15%',
           }}
         >
           <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title h4" id="exampleModalFullscreenLabel">
-                Terms Of Use OFFCORSS
+            <div className="modal-header " >
+             
+              <h5 className="modal-title h4 " id="exampleModalFullscreenLabel" >
+              Términos y condiciones de Eco-Moda
               </h5>
-              <button
-                type="button"
-                className="btn-close"
-                onClick={handleClose}
-              ></button>
+              <img src={Logo} alt="TrustShield Logo" style={{ width: '25px',height: 'auto',opacity: '0.4' }}/>
+              
             </div>
             <div className="modal-body">
               <div className="btn-group" style={{ width: "100%" }}>
@@ -165,8 +164,6 @@ function App() {
           </div>
         </div>
 
-
-        </div>
        
       )}
 
