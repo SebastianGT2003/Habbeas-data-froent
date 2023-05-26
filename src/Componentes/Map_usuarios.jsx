@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import MyPDF from "../Pdf/Docu";
 
@@ -21,7 +21,8 @@ function Map_usuarios() {
   const navegador = useNavigate();
 
   const mostrar_pdf = (user) => {
-    localStorage.setItem("usuarionombre", user.nombre,"publicidad",user.publicidad)
+    var otra = parseInt(user.publicidad,10)
+    localStorage.setItem("usuarionombre", user.nombre,"publicidad",otra)
     localStorage.setItem("fecha",user.fecha_actual)
     localStorage.setItem("usuariocedula",user.numerodoc)
     localStorage.setItem("tipo_doc",user.tipo_documento)
@@ -56,6 +57,13 @@ function Map_usuarios() {
     <div>
       <div className="col col-12 mt-3 text-center">
       </div>
+      <div class="d-flex flex-row-reverse">
+        <div>
+        <Link to='/admin'>
+        <button type="button" className="btn btn-outline-primary">Cerrar sesion</button>
+        </Link>
+        </div>
+</div>
       <div className="container">
         <h1>Usuarios registrados en tu pagina:</h1>
         <div>

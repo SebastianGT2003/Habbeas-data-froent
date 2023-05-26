@@ -11,22 +11,12 @@ function InicioSesion() {
 
   const validar_usuario = (ev) => {
     ev.preventDefault();
-    var usuario = {
-      nombre : nombre,
-      contraseña: contraseña,
-    };
-
-    axios
-      .post("/api/usuario/autenticacion", usuario)
-      .then((res) => {
-        alert(res.data);
-        if (res.data === "Usuario autenticado correctamente") {
-          navegador("/usuarios");
-        }
-      })
-      .then((err) => {
-        console.log(err);
-      });
+    if (nombre == 'admin' && contraseña == 'admin123'){
+      alert('Inicio de secion correcto')
+      navegador("/usuarios")
+    }else{
+      alert('Nombre o correo incorrecto')
+    }
   };
 
   return (
