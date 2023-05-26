@@ -74,7 +74,7 @@ function Map_usuarios() {
                   <th>Documento</th>
                   <th>Nombre</th>
                   <th>Nivel de publicidad</th>
-                  <th>Fecha de aceptacion de terminos y condiciones</th>
+                  <th>Fecha de aceptación de términos y condiciones</th>
                 </tr>
               </thead>
               <tbody>
