@@ -7,7 +7,7 @@ function InicioSesion() {
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   // Navegador de rutas
-  const navegador = useNavigate();
+
 
   const validar_usuario = (ev) => {
     ev.preventDefault();
@@ -21,7 +21,8 @@ function InicioSesion() {
       .then((res) => {
         alert(res.data);
         if (res.data === "Usuario autenticado correctamente") {
-          navegador("/tienda");
+          alert("Has ingresado correctamente")
+
         }
       })
       .then((err) => {
