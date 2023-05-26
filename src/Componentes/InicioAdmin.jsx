@@ -77,7 +77,7 @@ function InicioSesion() {
                   }}
                   required
                 />
-                <label htmlFor="floatingPassword">Contreseña</label>
+                <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <button
                 className="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
