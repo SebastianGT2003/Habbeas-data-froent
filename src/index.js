@@ -29,7 +29,8 @@ root.render(
         <Route path="/" element={<InicioSesion/>} />
         <Route path="/admin" element={<InicioAdmin/>} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/usuarios" element={<Usuarios />} />
+        <Route path="/tienda" element={<Tienda />} />
+        <Route path="/mapita" element={<Mapa />} />
         <Route path="/pdf" element={<PDF />} />
       </Routes>
     </Router>

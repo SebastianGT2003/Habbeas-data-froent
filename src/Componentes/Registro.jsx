@@ -39,7 +39,7 @@ function Registro() {
     setPublicidad(getData());
     var otra = parseInt(publicidad, 10)
 
-    if (otra == 0) {
+    if (publicidad == 0) {
       setPublicidad("Poca");
 
     } else if (otra == 100) {
