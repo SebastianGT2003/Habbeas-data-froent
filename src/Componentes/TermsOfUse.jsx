@@ -20,7 +20,6 @@ function App() {
 
   const handleClose = () => {
     localStorage.setItem("publicidad", data)
-    alert("Si señores")
     console.log(data)
     setShow(false);
   };
