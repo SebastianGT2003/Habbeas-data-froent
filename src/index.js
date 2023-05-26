@@ -5,10 +5,9 @@ import './index.css'
 import reportWebVitals from './reportWebVitals';
 
 
-import Tienda from './Paginas/Tienda';
+import Registros_pag from './Paginas/Mapeo';
 import InicioSesion from './Paginas/Inicio';
 import Registro from './Paginas/Registro';
-import Mapa from './Paginas/Mapa';
 import PDF from './Paginas/Pdf'
 
 
@@ -29,8 +28,7 @@ root.render(
       <Routes>
         <Route path="/" element={<InicioSesion/>} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/tienda" element={<Tienda />} />
-        <Route path="/mapita" element={<Mapa />} />
+        <Route path="/admin/registros" element={<Registros_pag />} />
         <Route path="/pdf" element={<PDF />} />
       </Routes>
     </Router>

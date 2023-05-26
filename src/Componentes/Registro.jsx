@@ -33,13 +33,13 @@ function Registro() {
     setPublicidad(getData());
     var otra=parseInt(publicidad,10)
 
-    if (otra == 0) {
+    if (publicidad == 0) {
       setPublicidad("Poca");
       
-    }else if(otra == 100){
+    }else if(publicidad == 100){
       setPublicidad("Frecuente");
     }
-    else if (otra == 50){
+    else if (publicidad == 50){
       setPublicidad("Moderada");
     }
    
@@ -132,9 +132,9 @@ function Registro() {
                   <option selected disabled value="">
                     Tipo de documento
                   </option>
-                  <option value="cc">CC - Cédula de ciudadanía</option>
-                  <option value="ce">CE - Cédula de extranjería</option>
-                  <option value="pa">PA - Pasaporte</option>
+                  <option value="Cc">CC - Cédula de ciudadanía</option>
+                  <option value="Ce">CE - Cédula de extranjería</option>
+                  <option value="Pa">PA - Pasaporte</option>
                 </select>
 
                 <label htmlFor="floatingPassword">Tipo de documento</label>

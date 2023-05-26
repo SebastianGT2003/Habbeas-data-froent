@@ -1,6 +1,6 @@
 import Map_usu  from '../Componentes/Map_usuarios';
 
-function Tienda() {
+function Mapeo() {
 	
 
 	return (
@@ -11,4 +11,4 @@ function Tienda() {
 	);
 }
 
-export default Tienda;
+export default Mapeo;

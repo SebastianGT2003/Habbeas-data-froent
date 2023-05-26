@@ -20,14 +20,21 @@ function Map_usuarios() {
 
   useEffect(() => {
     usuarios_registrados(setUserList).catch(console.error);
+
+    
   }, []);
 
   const mostrar_pdf = (user) => {
+    localStorage.setItem("usuarionombre", user.nombre,"publicidad",user.publicidad)
+    localStorage.setItem("fecha",user.fecha_actual)
+    localStorage.setItem("usuariocedula",user.numerodoc)
+    localStorage.setItem("tipo_doc",user.tipo_documento)
     setSelectedUser(user);
-    console.log(selectedUser)
+    console.log(user.fecha_actual);
     setRenderizarComponente(true);
-    MyPDF(user)
-    navegador("/pdf")
+    MyPDF(user);
+    navegador("/pdf");
+    
   };
 
   return (
@@ -69,11 +76,13 @@ function Map_usuarios() {
                       >
                         Ver PDF
                       </button>
+                      
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            
           </div>
         </div>
       </div>
