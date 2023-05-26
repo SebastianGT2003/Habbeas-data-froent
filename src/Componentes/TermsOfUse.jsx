@@ -40,7 +40,7 @@ function App() {
           <div className="modal-content">
             <div className="modal-header " >
              
-              <h5 className="modal-title h4 " id="exampleModalFullscreenLabel">
+              <h5 className="modal-title h4 " id="exampleModalFullscreenLabel" >
               Términos y condiciones de Eco-Moda
               </h5>
               <img src={Logo} alt="TrustShield Logo" style={{ width: '25px',height: 'auto',opacity: '0.4' }}/>

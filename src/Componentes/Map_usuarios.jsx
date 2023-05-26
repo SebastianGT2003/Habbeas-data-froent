@@ -62,7 +62,7 @@ function Map_usuarios() {
         <input
           className="form-control inputBuscar"
           value={busqueda}
-          placeholder="Búsqueda de usuario por nombre "
+          placeholder="Búsqueda de usuario por documento de identidad "
           onChange={Busqueda}
         />
         </div>

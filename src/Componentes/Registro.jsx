@@ -157,7 +157,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label htmlFor="floatingPassword">Numero de documento</label>
+                <label htmlFor="floatingPassword">Número de documento</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -215,7 +215,7 @@ function Registro() {
                   }}
                   required
                 />
-                <label htmlFor="floatingPassword">Contreseña</label>
+                <label htmlFor="floatingPassword">Contraseña</label>
               </div>
 
 
