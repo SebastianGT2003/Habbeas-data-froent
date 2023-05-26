@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Modal from "./TermsOfUse";
 import MyPDF from "../Pdf/Docu";
 
 function Map_usuarios() {
+
   const [userList, setUserList] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [renderizarComponente, setRenderizarComponente] = useState(false);
+
+  const [busqueda, setBusqueda]= useState("");
 
 
   const usuarios_registrados = async (setUserList) => {
@@ -18,10 +20,6 @@ function Map_usuarios() {
 
   const navegador = useNavigate();
 
-  useEffect(() => {
-    usuarios_registrados(setUserList).catch(console.error);
-  }, []);
-
   const mostrar_pdf = (user) => {
     setSelectedUser(user);
     console.log(selectedUser)
@@ -30,20 +28,40 @@ function Map_usuarios() {
     navegador("/pdf")
   };
 
+
+  const Busqueda = (e) =>{
+    setBusqueda(e.target.value)
+    console.log(e.target.value)
+  }
+
+  let resultado = []
+  if(!busqueda){
+    resultado = userList
+  }else{
+    resultado = userList.filter( (dato) =>
+    dato.numerodoc.toLowerCase().includes(busqueda.toLocaleLowerCase()))
+  }
+
+  useEffect(() => {
+    usuarios_registrados(setUserList);
+  }, []);
+
+
   return (
     <div>
-      <div className="col col-12 mt-3">
-        <button
-          type="button"
-          className="btn btn-danger mr-4 position-absolute top-5 end-0"
-        >
-          Cerrar sesion
-        </button>
+      <div className="col col-12 mt-3 text-center">
       </div>
-
       <div className="container">
         <h1>Usuarios registrados en tu pagina:</h1>
-        <div className="row-4 mt-4">
+        <div>
+        <input
+          className="form-control inputBuscar"
+          value={busqueda}
+          placeholder="Búsqueda de usuario por nombre "
+          onChange={Busqueda}
+        />
+        </div>
+        <div className="row-4 mt-4 text-center">
           <div className="col">
             <table className="table table-striped">
               <thead>
@@ -55,7 +73,7 @@ function Map_usuarios() {
                 </tr>
               </thead>
               <tbody>
-                {userList.map((user, index) => (
+                {resultado.map((user, index) => (
                   <tr key={index}>
                     <td>{user.numerodoc}</td>
                     <td>{user.nombre}</td>

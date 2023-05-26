@@ -5,11 +5,11 @@ import './index.css'
 import reportWebVitals from './reportWebVitals';
 
 
-import Tienda from './Paginas/Tienda';
+import Usuarios from './Paginas/Usuarios';
 import InicioSesion from './Paginas/Inicio';
 import Registro from './Paginas/Registro';
-import Mapa from './Paginas/Mapa';
 import PDF from './Paginas/Pdf'
+import InicioAdmin from './Paginas/InicioAdmin';
 
 
 import {
@@ -24,17 +24,15 @@ import {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
     <Router>
       <Routes>
         <Route path="/" element={<InicioSesion/>} />
+        <Route path="/admin" element={<InicioAdmin/>} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/tienda" element={<Tienda />} />
-        <Route path="/mapita" element={<Mapa />} />
+        <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/pdf" element={<PDF />} />
       </Routes>
     </Router>
-  </React.StrictMode>
 );
 reportWebVitals();
 

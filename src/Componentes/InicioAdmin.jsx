@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 
 function InicioSesion() {
   //Hooks
-  const [correo, setCorreo] = useState("");
+  const [nombre, setNombre] = useState("");
   const [contraseña, setContraseña] = useState("");
   // Navegador de rutas
   const navegador = useNavigate();
@@ -12,7 +12,7 @@ function InicioSesion() {
   const validar_usuario = (ev) => {
     ev.preventDefault();
     var usuario = {
-      correo: correo,
+      nombre : nombre,
       contraseña: contraseña,
     };
 
@@ -21,7 +21,7 @@ function InicioSesion() {
       .then((res) => {
         alert(res.data);
         if (res.data === "Usuario autenticado correctamente") {
-          navegador("/tienda");
+          navegador("/usuarios");
         }
       })
       .then((err) => {
@@ -36,31 +36,34 @@ function InicioSesion() {
       role="dialog"
       id="modalSignin"
     >
-      <div className="aling-right">
-        <Link to='/admin'>
-        <button type="button" className="btn btn-outline-primary">Administrador</button>
-        </Link>
-      </div>
       <div className="modal-dialog" role="document">
         <div className="modal-content rounded-4 shadow">
           <div className="modal-header p-5 pb-4 border-bottom-0">
-            <h1 className="text-primary fw-bold mb-0 fs-2">ECO-MODA</h1>
+            <h1 className="text-primary fw-bold mb-0 fs-2">Administrador</h1>
+            <Link to="/">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </Link>
           </div>
           <div className="modal-body p-5 pt-0">
             <form className="needs-validation"  onSubmit={validar_usuario}>
-              <div className="form-floating mb-3">
+            <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control rounded-3"
                   id="floatingInput"
-                  placeholder="nombre@ejemplo.com"
-                  value={correo}
+                  placeholder="Nombre"
+                  value={nombre}
                   onChange={(e) => {
-                    setCorreo(e.target.value);
+                    setNombre(e.target.value);
                   }}
                   required
                 />
-                <label htmlFor="floatingInput">Correo</label>
+                <label htmlFor="floatingPassword">Nombre</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -83,14 +86,6 @@ function InicioSesion() {
                 Inicio sesión
               </button>
             </form>
-            <Link to="/registro">
-              <button
-                type="button"
-                className="btn btn-lg rounded-3 w-100 mb-2 btn-outline-primary"
-              >
-                Registarme
-              </button>
-            </Link>
           </div>
         </div>
       </div>
