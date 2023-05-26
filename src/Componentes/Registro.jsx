@@ -21,7 +21,7 @@ function Registro() {
   var today = new Date();
 
   // get today's date in `MM/DD/YYYY` format
-  var now = today.toLocaleDateString('en-US');
+  var now = today.toLocaleDateString('es-CO');
 
   const opciones = [
     { value: 'cc', text: 'CC - Cédula de ciudadanía' },
@@ -30,6 +30,7 @@ function Registro() {
   ]
 
   const navegador = useNavigate();
+  
 
   const getData = () => {
     return localStorage.getItem("publicidad");
@@ -39,13 +40,11 @@ function Registro() {
     setPublicidad(getData());
     var otra = parseInt(publicidad, 10)
 
-    if (publicidad == 0) {
+    if (otra == 0) {
       setPublicidad("Poca");
-
     } else if (otra == 100) {
       setPublicidad("Frecuente");
-    }
-    else if (otra == 50) {
+    } else if (otra == 50) {
       setPublicidad("Moderada");
     }
 
