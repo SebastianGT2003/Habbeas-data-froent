@@ -15,19 +15,22 @@ function InicioSesion() {
       nombre : nombre,
       contraseña: contraseña,
     };
+    console.log(usuario)
 
     axios
-      .post("/api/usuario/autenticacion", usuario)
-      .then((res) => {
+    .post("/api/admin/auth", usuario)
+    .then((res) => {
+      if (res.data === "Usuario autenticado correctamente") {
         alert(res.data);
-        if (res.data === "Usuario autenticado correctamente") {
-          navegador("/usuarios");
-        }
-      })
-      .then((err) => {
-        console.log(err);
-      });
-  };
+        navegador("/usuarios")
+      } else if (res.data === "El usuario ya existe") {
+        alert(res.data);
+      }
+    })
+    .then((err) => {
+      console.log(err);
+    });
+}
 
   return (
     <div
